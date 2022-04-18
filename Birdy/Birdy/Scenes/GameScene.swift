@@ -23,6 +23,7 @@ class GameScene: SKScene {
     var pinchRecognizer = UIPinchGestureRecognizer()
     var maxScale: CGFloat = 0
     
+    let tractorSpriteNode = SKSpriteNode(imageNamed: "tractor1")
     var bird = Bird(type: .red)
     var birds = [Bird]()
     var enemies = 0 {
@@ -33,6 +34,8 @@ class GameScene: SKScene {
             }
         }
     }
+
+    
     let anchor = SKNode()
     
     var level: Int?
@@ -162,6 +165,7 @@ class GameScene: SKScene {
         addChild(anchor)
         addSlingshot()
         addBird()
+        addTractor()
     }
     
     func addCamera() {
@@ -180,6 +184,30 @@ class GameScene: SKScene {
         slingshot.zPosition = Zpositions.obstacles
         mapNode.addChild(slingshot)
         
+    }
+    
+    func addTractor() {
+        let scaleSize = CGSize(width: mapNode.frame.midY/2 - mapNode.tileSize.height/2, height: mapNode.frame.midY/2 - mapNode.tileSize.height/2)
+        tractorSpriteNode.aspectScale(to: scaleSize, width: false, multiplier: 1.0)
+        tractorSpriteNode.position = CGPoint(x: -100, y: mapNode.tileSize.height + tractorSpriteNode.size.height / 2)
+        tractorSpriteNode.zPosition = Zpositions.background
+        mapNode.addChild(tractorSpriteNode)
+        tractorAnimate(object: tractorSpriteNode)
+    }
+    
+    func tractorAnimate(object: SKSpriteNode) {
+        var tractorFrames = [SKTexture]()
+        let tractorTextureAtlas = SKTextureAtlas(named: "Tractor Frames")
+        
+        for index in 0..<tractorTextureAtlas.textureNames.count {
+            let textureName = "tractor" + String(index)
+            tractorFrames.append(tractorTextureAtlas.textureNamed(textureName))
+        }
+        
+        tractorSpriteNode.run(SKAction.repeatForever(SKAction.animate(with: tractorFrames, timePerFrame: 0.5)))
+        
+        let moveRight = SKAction.moveTo(x: 2200, duration: 30.00)
+            object.run(moveRight)
     }
     
     func addBird() {
@@ -220,6 +248,7 @@ class GameScene: SKScene {
         let enemy = Enemy(type: enemyType)
         enemy.size = placeholder.size
         enemy.position = placeholder.position
+        enemy.zPosition = Zpositions.obstacles
         enemy.createPhysicsBody()
         return enemy
     }

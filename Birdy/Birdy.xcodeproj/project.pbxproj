@@ -176,8 +176,8 @@
 				E483371027FC484C00645502 /* SpriteKitButton.swift */,
 				E45E41BB27F304A0006BB9FD /* GameCamera.swift */,
 				E45E41BF27F61031006BB9FD /* Bird.swift */,
-				E45E41C127FADECA006BB9FD /* Block.swift */,
 				E427C19E28043721005DDA52 /* Enemy.swift */,
+				E45E41C127FADECA006BB9FD /* Block.swift */,
 				E427C1A02806C8DF005DDA52 /* Popup.swift */,
 			);
 			path = "Custom Nodes";
