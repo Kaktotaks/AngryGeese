@@ -189,25 +189,25 @@ class GameScene: SKScene {
     func addTractor() {
         let scaleSize = CGSize(width: mapNode.frame.midY/2 - mapNode.tileSize.height/2, height: mapNode.frame.midY/2 - mapNode.tileSize.height/2)
         tractorSpriteNode.aspectScale(to: scaleSize, width: false, multiplier: 1.0)
-        tractorSpriteNode.position = CGPoint(x: -100, y: mapNode.tileSize.height + tractorSpriteNode.size.height / 2)
+        tractorSpriteNode.position = CGPoint(x: -100, y: mapNode.tileSize.height + tractorSpriteNode.size.height / 1.5)
         tractorSpriteNode.zPosition = Zpositions.background
         mapNode.addChild(tractorSpriteNode)
-        tractorAnimate(object: tractorSpriteNode)
+        tractorAnimate()
     }
     
-    func tractorAnimate(object: SKSpriteNode) {
+    func tractorAnimate() {
         var tractorFrames = [SKTexture]()
         let tractorTextureAtlas = SKTextureAtlas(named: "Tractor Frames")
+        let moveRight = SKAction.moveTo(x: mapNode.frame.size.width + tractorSpriteNode.frame.size.width, duration: 40.00)
         
         for index in 0..<tractorTextureAtlas.textureNames.count {
             let textureName = "tractor" + String(index)
             tractorFrames.append(tractorTextureAtlas.textureNamed(textureName))
         }
-        
-        tractorSpriteNode.run(SKAction.repeatForever(SKAction.animate(with: tractorFrames, timePerFrame: 0.5)))
-        
-        let moveRight = SKAction.moveTo(x: 2200, duration: 30.00)
-            object.run(moveRight)
+            tractorSpriteNode.run(SKAction.repeatForever(SKAction.animate(with: tractorFrames, timePerFrame: 0.3)))
+            
+            tractorSpriteNode.run(moveRight)
+
     }
     
     func addBird() {
