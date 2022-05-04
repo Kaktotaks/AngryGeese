@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "grassMid.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "finalLevel.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

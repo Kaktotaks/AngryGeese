@@ -194,6 +194,7 @@
 		E483371227FC555200645502 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				E48CA9582800679F00D9D03E /* Levels.plist */,
 				E45E419D27F2E8B6006BB9FD /* GameScene1.sks */,
 				E44EE62627FDC2E700499024 /* GameScene2.sks */,
 				E44EE62827FDC39600499024 /* GameScene3.sks */,
@@ -203,7 +204,6 @@
 				E44EE63027FDC3AC00499024 /* GameScene7.sks */,
 				E44EE63227FDC3B100499024 /* GameScene8.sks */,
 				E44EE63427FDC3B700499024 /* GameScene9.sks */,
-				E48CA9582800679F00D9D03E /* Levels.plist */,
 			);
 			path = Levels;
 			sourceTree = "<group>";

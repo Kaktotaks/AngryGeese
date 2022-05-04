@@ -30,10 +30,6 @@ class GameCamera: SKCameraNode {
         } else {
             constraints = [levelEdgeConstraint]
         }
-        
-        
-        
-    
     }
 
 }
