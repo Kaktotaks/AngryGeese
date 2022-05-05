@@ -1,0 +1,33 @@
+{
+  "identifier" : "9B571124",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "1CB4F76F",
+      "localizations" : [
+        {
+          "description" : "Buy this level and help Ukrainians",
+          "displayName" : "Final Level",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "finalLevel",
+      "referenceName" : "FinalLevel",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 2
+  }
+}

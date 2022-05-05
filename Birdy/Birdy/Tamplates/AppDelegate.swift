@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error)
             }
         }
-        
-        
-        
+
+        iAPManager.shared.fetchProduct()
+
         return true
     }
 

@@ -36,6 +36,7 @@
 		E483371127FC484C00645502 /* SpriteKitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E483371027FC484C00645502 /* SpriteKitButton.swift */; };
 		E48CA9592800679F00D9D03E /* Levels.plist in Resources */ = {isa = PBXBuildFile; fileRef = E48CA9582800679F00D9D03E /* Levels.plist */; };
 		E48CA95B28006BDA00D9D03E /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48CA95A28006BDA00D9D03E /* LevelData.swift */; };
+		E4B0F30D2823C58300277BC1 /* iAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B0F30C2823C58300277BC1 /* iAPManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		E483371027FC484C00645502 /* SpriteKitButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteKitButton.swift; sourceTree = "<group>"; };
 		E48CA9582800679F00D9D03E /* Levels.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Levels.plist; sourceTree = "<group>"; };
 		E48CA95A28006BDA00D9D03E /* LevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
+		E4B0F30C2823C58300277BC1 /* iAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iAPManager.swift; sourceTree = "<group>"; };
+		E4B0F30E2823CA5E00277BC1 /* iAPConfiguration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = iAPConfiguration.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 			children = (
 				E44EE63727FDCB3B00499024 /* AnimationHelper.swift */,
 				E48CA95A28006BDA00D9D03E /* LevelData.swift */,
+				E4B0F30C2823C58300277BC1 /* iAPManager.swift */,
+				E4B0F30E2823CA5E00277BC1 /* iAPConfiguration.storekit */,
 			);
 			path = "Helper Files";
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B0F30D2823C58300277BC1 /* iAPManager.swift in Sources */,
 				E427C19F28043721005DDA52 /* Enemy.swift in Sources */,
 				E48CA95B28006BDA00D9D03E /* LevelData.swift in Sources */,
 				E45E41A227F2E8B6006BB9FD /* GameScene.swift in Sources */,
