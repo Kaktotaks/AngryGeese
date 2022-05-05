@@ -16,7 +16,7 @@ protocol SceneManagerDelegate {
 }
 
 class GameViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presentMenuScene()
@@ -44,7 +44,9 @@ extension GameViewController: SceneManagerDelegate {
             gameScene.level = level
             
             if gameScene.level == 9 {
-                    self.presentLevelScene()
+                iAPManager.shared.purchase(completion: {
+                    self.present(scene: gameScene)
+                })
             } else {
                 present(scene: gameScene)
             }

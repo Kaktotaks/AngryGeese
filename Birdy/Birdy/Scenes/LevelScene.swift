@@ -45,16 +45,6 @@ class LevelScene: SKScene {
                 levelClosedButton.addChild(levelLabel)
                 levelClosedButton.aspectScale(to: frame.size, width: false, multiplier: 0.2)
                 level += 1
-                
-                if level == 10 {
-                    let finalLevelBoxButton = SpriteKitButton(defaultButtonImage: "finalLevel", action: goToFinalLevel, index: 9)
-
-                    finalLevelBoxButton.position = CGPoint(x: columnStartingPoint + CGFloat(column) * columnStartingPoint, y: rowStartingPoint - CGFloat(row) * frame.midY/2)
-                    finalLevelBoxButton.zPosition = Zpositions.hudBackground
-                    finalLevelBoxButton.aspectScale(to: levelClosedButton.size, width: false, multiplier: 1.0)
-                    levelClosedButton.removeFromParent()
-                    addChild(finalLevelBoxButton)
-                }
             }
         }
     }
@@ -62,12 +52,4 @@ class LevelScene: SKScene {
     func goToGameSceneFor(level: Int) {
         sceneManagerDelegate?.presentGameSceneFor(level: level)
     }
-    
-    func goToFinalLevel(level: Int) {
-        iAPManager.shared.purchase(completion: {
-            self.sceneManagerDelegate?.presentGameSceneFor(level: level)
-        })
-    }
-
-
 }

@@ -16,11 +16,6 @@ final class iAPManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactio
     
     private var completion: (() -> Void)?
     
-//    enum Product: String, CaseIterable {
-//        case finalLevel
-//
-//    }
-    
     public func fetchProduct() {
         let request = SKProductsRequest(productIdentifiers: ["finalLevel"])
         request.delegate = self
@@ -34,6 +29,10 @@ final class iAPManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactio
     }
     
     public func purchase(completion: @escaping(() -> Void)) {
+        guard SKPaymentQueue.canMakePayments() else {
+            return
+        }
+        
         guard let storeKitProduct = self.products.first else {
             return
         }
@@ -51,8 +50,8 @@ final class iAPManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactio
             case .purchasing:
                 break
             case .purchased:
-                    SKPaymentQueue.default().finishTransaction($0)
-                    SKPaymentQueue.default().remove(self)
+                SKPaymentQueue.default().finishTransaction($0)
+                SKPaymentQueue.default().remove(self)
                 completion?()
             case .failed:
                 break
@@ -65,5 +64,4 @@ final class iAPManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactio
             }
         })
     }
-    
 }
