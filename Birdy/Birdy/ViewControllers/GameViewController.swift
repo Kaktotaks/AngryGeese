@@ -44,9 +44,32 @@ extension GameViewController: SceneManagerDelegate {
             gameScene.level = level
             
             if gameScene.level == 9 {
-                iAPManager.shared.purchase(completion: {
-                    self.present(scene: gameScene)
-                })
+                let alert = UIAlertController(title:
+"""
+We ask you for help 🙏🏼
+""",
+                                              message:
+"""
+All funds from the purchase of the next level will be transferred as humanitarian aid to Ukrainian families affected by Russia's invasion of the territory of Ukraine.
+Stay strong with Ukraine 🇺🇦
+""",
+                                              preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Lets do it 🫶🏼",
+                                              style: .cancel,
+                                              handler: { action in
+                    iAPManager.shared.purchase(completion: {
+                        self.present(scene: gameScene)
+                    })
+                }))
+                
+                alert.addAction(UIAlertAction(title: "No thanks",
+                                              style: .destructive,
+                                              handler: { action in
+                    self.dismiss(animated: true)
+                }))
+                
+                present(alert, animated: true)
             } else {
                 present(scene: gameScene)
             }
@@ -65,5 +88,4 @@ extension GameViewController: SceneManagerDelegate {
             view.ignoresSiblingOrder = true
         }
     }
-    
 }
