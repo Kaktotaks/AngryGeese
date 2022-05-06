@@ -11,6 +11,10 @@ import StoreKit
 final class iAPManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
     static let shared = iAPManager()
+
+    public var paymentStatus: Int {
+        return UserDefaults.standard.integer(forKey: "paymentStatus")
+    }
     
     var products = [SKProduct]()
     
@@ -52,6 +56,12 @@ final class iAPManager: NSObject, SKProductsRequestDelegate, SKPaymentTransactio
             case .purchased:
                 SKPaymentQueue.default().finishTransaction($0)
                 SKPaymentQueue.default().remove(self)
+                
+                // Upload new payment status after purchasing
+                let currentCount = paymentStatus
+                let newCount = currentCount + 1
+                UserDefaults.standard.setValue(newCount, forKey: "paymentStatus")
+
                 completion?()
             case .failed:
                 break

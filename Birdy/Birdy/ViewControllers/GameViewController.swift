@@ -43,7 +43,7 @@ extension GameViewController: SceneManagerDelegate {
             gameScene.sceneManagerDelegate = self
             gameScene.level = level
             
-            if gameScene.level == 9 {
+            if gameScene.level == 9 && iAPManager.shared.paymentStatus == 0 {
                 let alert = UIAlertController(title:
 """
 We ask you for help 🙏🏼
