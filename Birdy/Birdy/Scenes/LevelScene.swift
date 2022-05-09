@@ -31,29 +31,41 @@ class LevelScene: SKScene {
         for row in 0..<3 {
             for column in 0..<3 {
                 
-                let levelClosedButton = SpriteKitButton(defaultButtonImage: "levelButton", action: goToGameSceneFor, index: level)
-                levelClosedButton.position = CGPoint(x: columnStartingPoint + CGFloat(column) * columnStartingPoint, y: rowStartingPoint - CGFloat(row) * frame.midY/2)
-                levelClosedButton.zPosition = Zpositions.hudBackground
-                addChild(levelClosedButton)
+                let levelButton = SpriteKitButton(defaultButtonImage: "levelButton", action: goToGameSceneFor, index: level)
+                levelButton.position = CGPoint(x: columnStartingPoint + CGFloat(column) * columnStartingPoint, y: rowStartingPoint - CGFloat(row) * frame.midY/2)
+                levelButton.zPosition = Zpositions.hudBackground
+                addChild(levelButton)
                 
                 let levelLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
                 levelLabel.fontSize = 200.0
                 levelLabel.verticalAlignmentMode = .center
                 levelLabel.text = "\(level)"
-                levelLabel.aspectScale(to: levelClosedButton.size, width: false, multiplier: 0.5)
+                levelLabel.aspectScale(to: levelButton.size, width: false, multiplier: 0.5)
                 levelLabel.zPosition = Zpositions.hudLabel
-                levelClosedButton.addChild(levelLabel)
-                levelClosedButton.aspectScale(to: frame.size, width: false, multiplier: 0.2)
+                levelButton.addChild(levelLabel)
+                levelButton.aspectScale(to: frame.size, width: false, multiplier: 0.2)
                 level += 1
                 
                 if level == 10 {
-                    let finalLevelBoxButton = SpriteKitButton(defaultButtonImage: "finalLevel", action: goToGameSceneFor, index: 9)
-
-                    finalLevelBoxButton.position = CGPoint(x: columnStartingPoint + CGFloat(column) * columnStartingPoint, y: rowStartingPoint - CGFloat(row) * frame.midY/2)
-                    finalLevelBoxButton.zPosition = Zpositions.hudBackground
-                    finalLevelBoxButton.aspectScale(to: levelClosedButton.size, width: false, multiplier: 1.0)
-                    levelClosedButton.removeFromParent()
-                    addChild(finalLevelBoxButton)
+                    
+                    if iAPManager.shared.paymentStatus == 0 {
+                        let finalLevelBoxButton = SpriteKitButton(defaultButtonImage: "finalLevel", action: goToGameSceneFor, index: 9)
+                        
+                        finalLevelBoxButton.position = CGPoint(x: columnStartingPoint + CGFloat(column) * columnStartingPoint, y: rowStartingPoint - CGFloat(row) * frame.midY/2)
+                        finalLevelBoxButton.zPosition = Zpositions.hudBackground
+                        finalLevelBoxButton.aspectScale(to: levelButton.size, width: false, multiplier: 1.0)
+                        levelButton.removeFromParent()
+                        addChild(finalLevelBoxButton)
+                    } else {
+                        let finalLevelBoxButtonPurchased = SpriteKitButton(defaultButtonImage: "finalLevelPurchased", action: goToGameSceneFor, index: 9)
+                        
+                        finalLevelBoxButtonPurchased.position = CGPoint(x: columnStartingPoint + CGFloat(column) * columnStartingPoint, y: rowStartingPoint - CGFloat(row) * frame.midY/2)
+                        finalLevelBoxButtonPurchased.zPosition = Zpositions.hudBackground
+                        finalLevelBoxButtonPurchased.aspectScale(to: levelButton.size, width: false, multiplier: 1.0)
+                        levelButton.removeFromParent()
+                        addChild(finalLevelBoxButtonPurchased)
+                        
+                    }
                 }
             }
         }
