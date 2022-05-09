@@ -14,8 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        iAPManager.shared.fetchProduct()
         
         // Override point for customization after application launch.
         if let url = Bundle.main.url(forResource: "Levels", withExtension: "plist") {

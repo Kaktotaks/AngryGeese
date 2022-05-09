@@ -20,6 +20,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presentMenuScene()
+        iAPManager.shared.fetchProduct()
     }
 }
 
@@ -58,9 +59,11 @@ Stay strong with Ukraine 🇺🇦
                 alert.addAction(UIAlertAction(title: "Lets do it 🫶🏼",
                                               style: .cancel,
                                               handler: { action in
-                    iAPManager.shared.purchase(completion: {
-                        self.present(scene: gameScene)
-                    })
+                    DispatchQueue.main.async {
+                        iAPManager.shared.purchase(completion: {
+                            self.present(scene: gameScene)
+                        })
+                    }
                 }))
                 
                 alert.addAction(UIAlertAction(title: "No thanks",
