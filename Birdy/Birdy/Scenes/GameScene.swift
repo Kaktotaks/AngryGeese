@@ -269,6 +269,11 @@ class GameScene: SKScene {
             popup.zPosition = Zpositions.hudLabel
             popup.popupButtonHandlerDelegate = self
             gameCamera.addChild(popup)
+            
+            let currentLevel = LevelScene.shared.level
+            let newlevel = currentLevel + 1
+            UserDefaults.standard.setValue(newlevel, forKey: "levelCount")
+            
         } else {
             let popup = Popup(type: 1, size: frame.size)
             popup.zPosition = Zpositions.hudLabel
@@ -386,6 +391,4 @@ extension GameScene {
             }
         }
     }
-    
-    
 }
