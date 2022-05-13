@@ -40,7 +40,7 @@ class LevelScene: SKScene {
         levelLabel.fontSize = 200.0
         levelLabel.verticalAlignmentMode = .center
         levelLabel.text = "\(level + 1)"
-        levelLabel.aspectScale(to: levelButton.size, width: false, multiplier: 0.3)
+        levelLabel.aspectScale(to: levelButton.size, width: false, multiplier: 0.15)
         levelLabel.zPosition = Zpositions.hudLabel
         levelButton.addChild(levelLabel)
         
