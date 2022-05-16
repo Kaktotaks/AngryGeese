@@ -39,9 +39,16 @@ class MenuScene: SKScene {
             let levelTextureAtlas = SKTextureAtlas(named: "levelBranch")
 
         for index in 0...LevelScene.shared.level {
-                let textureName = "levelBranch" + String(index)
-                levelFrames.append(levelTextureAtlas.textureNamed(textureName))
+            let textureName = "levelBranch" + String(index)
+            levelFrames.append(levelTextureAtlas.textureNamed(textureName))
+            
+            if index >= 9 {
+                break
             }
+            
+            
+            
+        }
             levelBranch.run(SKAction.repeat((SKAction.animate(with: levelFrames, timePerFrame: 0.3)), count: 1))
     }
     

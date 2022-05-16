@@ -8,7 +8,7 @@
 import SpriteKit
 
 enum EnemyType: String {
-    case orange
+    case piggyDog
 }
 
 class Enemy: SKSpriteNode {
@@ -21,7 +21,7 @@ class Enemy: SKSpriteNode {
         self.type = type
         animationFrames = AnimationHelper.loadTextures(from: SKTextureAtlas(named: type.rawValue), withName: type.rawValue)
         switch type {
-        case .orange:
+        case .piggyDog:
             health = 100
         }
         

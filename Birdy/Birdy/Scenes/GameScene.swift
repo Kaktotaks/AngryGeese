@@ -141,7 +141,7 @@ class GameScene: SKScene {
                         mapNode.addChild(block)
                         child.removeFromParent()
                     }
-                case "orange":
+                case "piggyDog":
                     if let enemy = createEnemy(from: child, name: name) {
                         mapNode.addChild(enemy)
                         enemies += 1

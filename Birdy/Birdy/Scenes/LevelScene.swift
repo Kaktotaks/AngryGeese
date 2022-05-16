@@ -62,13 +62,12 @@ class LevelScene: SKScene {
                 levelButton.removeFromParent()
                 addChild(finalLevelBoxButtonPurchased)
                 
+                let playFromBeginningButton = SpriteKitButton(defaultButtonImage: "playFromBeginningButton", action: playFromBeginning, index: 1)
+                playFromBeginningButton.position = CGPoint(x: frame.midX, y: frame.midY - levelButton.frame.size.width * 1.2)
+                playFromBeginningButton.zPosition = Zpositions.hudBackground
+                addChild(playFromBeginningButton)
+                playFromBeginningButton.aspectScale(to: frame.size, width: false, multiplier: 0.15)
             }
-            
-            let playFromBeginningButton = SpriteKitButton(defaultButtonImage: "playFromBeginningButton", action: playFromBeginning, index: 1)
-            playFromBeginningButton.position = CGPoint(x: frame.midX, y: frame.midY - levelButton.frame.size.width * 1.2)
-            playFromBeginningButton.zPosition = Zpositions.hudBackground
-            addChild(playFromBeginningButton)
-            playFromBeginningButton.aspectScale(to: frame.size, width: false, multiplier: 0.15)
         }
     }
     
