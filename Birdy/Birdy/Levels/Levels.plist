@@ -9,6 +9,7 @@
 			<string>yellow</string>
 			<string>red</string>
 			<string>blue</string>
+			<string>green</string>
 		</array>
 	</dict>
 	<key>Level8</key>
@@ -69,7 +70,7 @@
 	<dict>
 		<key>Birds</key>
 		<array>
-			<string>blue</string>
+			<string>yellow</string>
 			<string>blue</string>
 		</array>
 	</dict>
@@ -79,7 +80,7 @@
 		<array>
 			<string>red</string>
 			<string>blue</string>
-			<string>gray</string>
+			<string>green</string>
 			<string>yellow</string>
 		</array>
 	</dict>

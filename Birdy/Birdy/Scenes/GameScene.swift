@@ -109,8 +109,8 @@ class GameScene: SKScene {
             bird.flying = true
             roundState = .flying
             constraintToAnchor(active: false)
-            let dx = anchor.position.x - bird.position.x
-            let dy = anchor.position.y - bird.position.y
+            let dx = (anchor.position.x - bird.position.x) * 2
+            let dy = (anchor.position.y - bird.position.y) * 2
             let impulse = CGVector(dx: dx, dy: dy)
             bird.physicsBody?.applyImpulse(impulse)
             bird.isUserInteractionEnabled = false
@@ -227,7 +227,7 @@ class GameScene: SKScene {
         bird.position = anchor.position
         bird.zPosition = Zpositions.bird
         addChild(bird)
-        bird.aspectScale(to: mapNode.tileSize, width: true, multiplier: 1.0)
+        bird.aspectScale(to: mapNode.tileSize, width: true, multiplier: 1.3)
         constraintToAnchor(active: true)
         roundState = .ready
     }

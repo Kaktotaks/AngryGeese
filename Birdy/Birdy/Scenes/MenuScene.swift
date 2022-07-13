@@ -46,8 +46,6 @@ class MenuScene: SKScene {
                 break
             }
             
-            
-            
         }
             levelBranch.run(SKAction.repeat((SKAction.animate(with: levelFrames, timePerFrame: 0.3)), count: 1))
     }

@@ -8,7 +8,7 @@
 import SpriteKit
 
 enum BirdType: String {
-    case red, blue, yellow, gray
+    case red, blue, yellow, green
 }
 
 class Bird: SKSpriteNode {
@@ -33,7 +33,6 @@ class Bird: SKSpriteNode {
         
         flyingFrames = AnimationHelper.loadTextures(from: SKTextureAtlas(named: type.rawValue), withName: type.rawValue)
         let texture = SKTexture(imageNamed: type.rawValue + "1")
-        
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
     }
     
